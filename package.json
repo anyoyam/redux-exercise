@@ -1,0 +1,24 @@
+{
+  "name": "redux-exercise",
+  "version": "0.0.1",
+  "description": "learning how to use Redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/anyoyam/redux-exercise.git"
+  },
+  "author": "fen <yf28171@ly.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anyoyam/redux-exercise/issues"
+  },
+  "homepage": "https://github.com/anyoyam/redux-exercise#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-3": "^6.11.0"
+  }
+}
