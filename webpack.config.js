@@ -10,12 +10,12 @@ var webpack = require("webpack"),
 module.exports = {
     context: ROOT,
     entry: {
-        index: ROOT + 'react-redux/index.js',
+        index: ROOT + 'basic_react_redux/index.js',
         vendors: ['react', 'react-dom']
     },
     output: {
         filename: "[name].build.js",
-        path: ROOT + "react-redux/build",
+        path: ROOT + "basic_react_redux/build",
         sourceMapFilename: "[name].map"
     },
     module: {
@@ -30,10 +30,16 @@ module.exports = {
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-        }]
+        }],
+		noParse: [/react\.min/],
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
+		alias: {
+			'react$': 'react/dist/react.min',
+			'react-dom$': 'react-dom/dist/react-dom.min',
+			// 'react-redux$': 'react-redux/dist/react-redux.min'
+		}
     },
     debug: true,
     devtool: "#source-map",
@@ -42,6 +48,11 @@ module.exports = {
             compress: {
                 screw_ie8: true,
                 warnings: false
+            }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
             }
         }),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
